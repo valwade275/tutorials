@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+<h1>Working with Two Numbers</h1>
+<h3>Enter two numbers below:</h3>
+<p>Number 1: <input type = "text" id="num1"></p>
+<p>Number 2: <input type = "text" id="num2"></p>
+
+<h2>Sum of the Two Numbers</h2>
+<button onclick="displaySum()">Show Sum</button>
+<p id="sumOfNumbers"></p>
+<script>
+    function displaySum() {
+        var sum = Number(num1.value) + Number(num2.value);
+        sumOfNumbers.innerHTML = "Sum: " + sum;
+    }
+</script>
+
+<h2>Difference between the Two Numbers</h2>
+<button onclick="displayDifference()">Show Difference</button>
+<p id="differenceOfNumbers"></p>
+<script>
+    function displayDifference() {
+        var difference = Number(num1.value) - Number(num2.value);
+        differenceOfNumbers.innerHTML = "Difference: " + difference;
+    }
+</script>
+
+<h2>Average of the Two Numbers</h2>
+<button onclick="displayAverage()">Show Average</button>
+<p id="averageOfNumbers"></p>
+<script>
+    function displayAverage() {
+        var average = (Number(num1.value) + Number(num2.value)) / 2;
+        averageOfNumbers.innerHTML = "Average: " + average;
+    }
+</script>    
+
+</body>
+</html>
