@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+    <!--
+        For Exercise 6, you will create a function to get the length of a name. 
+    -->
+    <h1>Customer Information</h1>
+    <h3>Enter the customer's details below:</h3>
+    <p>First name: <input type = "text" id="first"></p>
+    <p>Last name: <input type = "text" id="last"></p>
+    <p>Age: <input type = "text" id="age"></p>
+
+    <button onclick="getName()">Get Name</button>
+    <p id="fullName"></p>
+    <script>
+        function getName() {
+            fullName.innerHTML = 
+            "Full Name: " + first.value + " " + last.value;
+        }
+    </script>
+
+    <button onclick="reverseName()">Last Name First</button>
+    <p id="fullNameReverse"></p>
+    <script>
+        function reverseName() {
+            fullNameReverse.innerHTML = 
+            "Last Name First: " + last.value + ", " + first.value; 
+        }
+    </script>
+
+    <button onclick="fullNameChars()">Length of Name</button>
+    <p id="fullNameLength"></p>
+    <script>
+        function fullNameChars() {
+            var length = Number(first.length) + Number(last.length);
+            fullNameLength.innerHTML = "Name Length: " + length;
+        }
+    </script>
+
+    <button onclick="getAge()">Get Age</button>
+    <p id="personAge"></p>
+    <script>
+        function getAge() {
+            personAge.innerHTML = 
+            "Age Is: " + age.value;
+        }
+    </script>
+
+</body>
+</html>
