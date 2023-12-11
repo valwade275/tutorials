@@ -14,8 +14,7 @@
     <p id="fullName"></p>
     <script>
         function getName() {
-            fullName.innerHTML = 
-            "Full Name: " + first.value + " " + last.value;
+            fullName.innerHTML = "Full Name: " + first.value + " " + last.value;
         }
     </script>
 
@@ -23,26 +22,35 @@
     <p id="fullNameReverse"></p>
     <script>
         function reverseName() {
-            fullNameReverse.innerHTML = 
-            "Last Name First: " + last.value + ", " + first.value; 
+            fullNameReverse.innerHTML = "Last Name First: " + last.value + ", " + first.value; 
         }
     </script>
 
-    <button onclick="fullNameChars()">Length of Name</button>
+    <button onclick="showLength()">Length of Name</button>
     <p id="fullNameLength"></p>
     <script>
-        function fullNameChars() {
-            var length = Number(first.length) + Number(last.length);
-            fullNameLength.innerHTML = "Name Length: " + length;
+        function fullNameChars(firstName, lastName) {
+            return firstName.length + lastName.length + 1;
+        }
+        function showLength() {
+            fullNameLength.innerHTML = fullNameChars(first.value, last.value);
         }
     </script>
+
+    <!--
+    Another way to find the length of the full name would be to create the full name first, and then take the length of that:
+function 
+fullNameLength(firstName, lastName){
+var fullName = firstName + " " + lastName;
+return fullName.length;
+}    
+    -->
 
     <button onclick="getAge()">Get Age</button>
     <p id="personAge"></p>
     <script>
         function getAge() {
-            personAge.innerHTML = 
-            "Age Is: " + age.value;
+            personAge.innerHTML = "Age Is: " + age.value;
         }
     </script>
 
