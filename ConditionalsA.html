@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+    <!--
+        Exercise 8: For this exercise, you’ll create some JavaScript functions with conditionals and switch statements.
+        Login
+        Length Comparison
+        Directions
+        This version of the exercise uses "document.getElementById" to properly call functions.
+    -->
+
+    <p><input type="text" id="textbox1"></p>
+    <p><input type="text" id="textbox2"></p>
+    <p><input type="text" id="textbox3"></p>
+
+    <button onclick="login()">Login</button>
+    <button onclick="compare()">Compare</button>
+    <button onclick="showDirection()">Direction</button>
+
+    <p id="result"></p>
+
+    <script>
+        function login() {
+            const textbox1 = document.getElementById("textbox1");
+            const textbox2 = document.getElementById("textbox2");
+            const result = document.getElementById("result");
+
+            if (textbox1.value === "admin" && textbox2.value === "pass") {
+                result.innerHTML = "Logged in";
+            } else {
+                result.innerHTML = "Incorrect username and password";
+            }
+        }
+
+        function compare() {
+            const textbox1 = document.getElementById("textbox1");
+            const textbox2 = document.getElementById("textbox2");
+            const result = document.getElementById("result");
+
+            if (textbox1.value.length > textbox2.value.length) {
+                result.innerHTML = "First is longer";
+            } else if (textbox1.value.length < textbox2.value.length) {
+                result.innerHTML = "Second is longer";
+            } else {
+                result.innerHTML = "Same length";
+            }
+        }
+
+        function directionName(abbrev) {
+            switch (abbrev) {
+                case "n":
+                    return "North";
+                case "s":
+                    return "South";
+                case "e":
+                    return "East";
+                case "w":
+                    return "West";
+                default:
+                    return "Somewhere";
+            }
+        }
+
+        function showDirection() {
+            const textbox3 = document.getElementById("textbox3");
+            const result = document.getElementById("result");
+
+            result.innerHTML = "Go " + directionName(textbox3.value);
+        }
+    </script>
+</body>
+</html>
