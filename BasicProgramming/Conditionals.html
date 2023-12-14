@@ -18,6 +18,8 @@
 <p id="result"></p>
 
 <script>
+    // Verifies that the username and password from the text boxes
+    // are valid and logs in the user.
     function login() {
         if (textbox1.value == "admin" && textbox2.value == "pass") {
             result.innerHTML = "Logged in";
@@ -26,6 +28,8 @@
         }
     }
     
+    // Compares the length of the username and password and places 
+    // the result below the buttons.
     function compare() {
         if (textbox1.value.length > textbox2.value.length) {
             result.innerHTML = "First is longer";
@@ -36,6 +40,8 @@
         }
     }
     
+    // Changes the direction abbreviation (n, w, e, w) to the full
+    // name of the direction.
     function directionName(abbrev) {
         switch (abbrev) {
             case "n":
@@ -50,11 +56,15 @@
             case "w":
                 return "West";
                 break;
+            // Returns this default response if the user 
+            // enters something other than n, s, e, or w.
             default:
                 return "Somewhere";
             }
     }
     
+    // Returns the direction entered by the user and places the 
+    // result below the buttons. 
     function showDirection() {
         result.innerHTML = "Go " + directionName(textbox3.value);
     }       
