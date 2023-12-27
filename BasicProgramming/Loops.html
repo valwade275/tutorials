@@ -1,15 +1,27 @@
 <!DOCTYPE HTML>
 <html>
 <body onload="demoLoop()">
+
+<!-- For this exercise, you will create some JavaScript functions with FOR LOOPS. -->
+<!-- Variations to the FOR LOOP for this exercise: -->
+<!-- (var i = 0; i < 10; i++)     Count numbers 0 to 9 -->
+<!-- (var i = 0; i < 10; i += 2)  Count by twos -->
+<!-- (var i = 8; i > 0; i --)     Count down from 8 to 1 -->
+<!-- (var i = 9; i >= 0; i -= 3)  Count down from 9 to 0 by threes -->
+<!-- (var i = 1; i < 100; i *= 2) Count by factors of two -->
+<!-- Review binary and unary operators! -->
+
 <p id="resultPar"></p>
+
 <script>
 function demoLoop() {
-var result = "";
-for (var i = 0; i < 10; i++) {
-result += "<p>" + i + "</p>";
-}
-resultPar.innerHTML = result;
+    var result = "";
+    for (var i = 1; i < 100; i *= 2) {
+        result += "<p>" + i + "</p>";
+    }
+    resultPar.innerHTML = result;
 }
 </script>
+
 </body>
 </html>
