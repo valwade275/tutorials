@@ -1,12 +1,22 @@
-# Exercise 7: Documenting Functions
+# Exercises 7 and 11: Documenting Functions
 
 ## Here are the functions that need documenting: 
+
+### Exercise 7
 getFriendDistance(username)
 getNumberFriends()
 logout()
 requestFriend(username)
 post(statusUpdate)
 like(postId, likeType)
+
+### Exercise 11
+safeMode(enable)
+getPremiumMode()
+setTimeout(timeout)
+newEvent(calendarId)
+getDirections(latitude, longitude, directionsCallback)
+createTransaction(amount)
 
 
 ***
