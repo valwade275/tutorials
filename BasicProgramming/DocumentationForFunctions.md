@@ -2,21 +2,21 @@
 
 ## Here are the functions that need documenting: 
 
-### Exercise 7
-getFriendDistance(username)
-getNumberFriends()
-logout()
-requestFriend(username)
-post(statusUpdate)
-like(postId, likeType)
+### Exercise 7 
+getFriendDistance(username) <br>
+getNumberFriends() <br>
+logout() <br>
+requestFriend(username) <br>
+post(statusUpdate) <br>
+like(postId, likeType) <br>
 
 ### Exercise 11
-safeMode(enable)
-getPremiumMode()
-setTimeout(timeout)
-newEvent(calendarId)
-getDirections(latitude, longitude, directionsCallback)
-createTransaction(amount)
+safeMode(enable) <br>
+getPremiumMode() <br>
+setTimeout(timeout) <br>
+newEvent(calendarId) <br>
+getDirections(latitude, longitude, directionsCallback) <br>
+createTransaction(amount) <br>
 
 
 ***
