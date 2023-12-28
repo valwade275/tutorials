@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<body onload=" demoCollections()">
+
+<div id="resultDiv"></div>
+
+<script>
+var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+var course = {
+    title: "English Literature",
+    teacher: "Toni Morrison",
+    numberStudents: 33,
+    department: "English",
+    credits: 5,
+    graduate: false
+}
+
+function demoCollections() {
+    var result = "";
+
+    // Accessing array objects
+    result += "<p>" + "First day: " + daysOfWeek[0] + "</p>";
+    result += "<p>" + "Last day: " + daysOfWeek[daysOfWeek.length - 1] + "</p>";
+    
+    // Loop through array objects
+    for (var i = 0; i < daysOfWeek.length; i++) {
+        result += "<p>" + daysOfWeek[i] + "</p>";
+    }
+    for (var i = daysOfWeek.length - 1; i >= 0; i--) {
+        result += "<p>" + daysOfWeek[i] + "</p>";
+    }
+
+    // Accessing object's objects
+    result += "<p>" + "Teacher: " + course.teacher + "</p>";
+    result += "<p>" + "Total credits: " +
+        course.numberStudents * course.credits + "</p>";
+
+    // Looping through object properties
+    for (var prop in course) {
+        if (course.hasOwnProperty(prop)) {
+            result += "<p>" + prop + ": " + course[prop] + "</p>";
+        }
+    }
+    
+    resultDiv.innerHTML = result;
+}
+
+</script>
+</body>
+</html>
