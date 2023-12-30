@@ -34,6 +34,12 @@ const questionResponses = [
     "How long have you wanted to know that?",
     "That depends on who you ask."];
 
+const exclamationResponses = [
+    "Please calm down.",
+    "No need to get so excited.",
+    "You sound very passionate about that.",
+    "Would you care to restate that in a more neutral tone?"];
+
 // Create the first line of the conversation.
 function initialize() {
     therapySession = "<p> I am the psychotherapist. What is your problem? </p>";
@@ -45,28 +51,31 @@ function initialize() {
 function submitLine() {
     var patientLine = textbox.value;
     therapySession += "<p> <em>" + patientLine + "</em> </p>";
-    // Create a new variable to hold the therapist’s line and set it to the random 
-    // string in the array we created, using our new function.
+    // Create a new variable to hold the therapist’s line and set it to respond to 
+    // general statements, questions, and exclamations, using our new function.
     var therapistLine;
     if (lastChar(patientLine) == "?") {
         therapistLine = randomElement(questionResponses);
-    } else {
+        } else if (lastChar(patientLine) == "!") {
+        therapistLine = randomElement(exclamationResponses);
+        } else {
         therapistLine = randomElement(genericResponses);
-    }
+        }
+
     // Add that new line to the therapySession array.
     therapySession += "<p>" + therapistLine + "</p>";
     conversation.innerHTML = therapySession;
-}
+    }
 
 // Generate random responses.
 function randomElement(myArray) {
-var index = Math.floor(Math.random() * myArray.length);
-return myArray[index];
+    var index = Math.floor(Math.random() * myArray.length);
+    return myArray[index];
 }
 
-// Determine a question mark to handle questions.
+// Determine a question or exclamation mark to handle responses.
 function lastChar(myString) {
-return myString.substring(myString.length - 1);
+    return myString.substring(myString.length - 1);
 }
 
 </script>
