@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<body onload="drawChart()">
+
+<h1>Exercise 14</h1>
+<p>For this exercise, you will use a JavaScript module (that is, library) to draw a chart.</p>
+
+<!-- Add a canvas and code -->
+<canvas id="canvas1" width="300" height="300">
+    Your web-browser does not support the HTML 5 canvas element.
+</canvas>
+
+<!-- Import the library. Be sure the file is in the same folder. -->
+<script type="application/javascript" src="awesomechart.js"></script>
+
+<script>
+function drawChart(){
+    if(!!document.createElement('canvas').getContext){ //check that the canvas
+                                                        // element is supported
+        var mychart = new AwesomeChart('canvas1');
+        mychart.title = "Product Sales - 2023";
+        mychart.data = [1532, 3251, 3460, 1180, 6543];
+        mychart.labels = ["Desktops", "Laptops", "Netbooks", "Tablets", "Smartphones"];
+        mychart.draw();
+    }
+}
+</script>
+
+</body>
+</html>
