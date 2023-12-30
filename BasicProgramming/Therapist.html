@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+p {
+    line-height: 50%;
+}
+</style>
+</head>
+<body onload="initialize()">
+
+<h1>Eliza</h1>
+
+<p>Write here: <input id="textbox" size="150"/></p>
+<p><button onclick="submitLine()">Submit</button></p>
+
+<div id="conversation"></div>
+
+<script>
+var therapySession;
+
+const genericResponses = [
+    "Uh-huh.",
+    "Go on.",
+    "Why do you say that?",
+    "That's very interesting.",
+    "Fascinating...",
+    "Keep talking."];
+
+// Create the first line of the conversation.
+function initialize() {
+    therapySession = "<p> I am the psychotherapist. What is your problem? </p>";
+    conversation.innerHTML = therapySession;
+}
+
+// This function handles the button click.
+// It will take the textbox value and add it to the therapySession variable.
+function submitLine() {
+    var patientLine = textbox.value;
+    therapySession += "<p> <em>" + patientLine + "</em> </p>";
+    // Create a new variable to hold the therapist’s line and set it to the random 
+    // string in the array we created, using our new function.
+    var therapistLine = randomElement(genericResponses);
+    // Add that new line to the therapySession array.
+    therapySession += "<p>" + therapistLine + "</p>";
+    conversation.innerHTML = therapySession;
+}
+
+function randomElement(myArray) {
+var index = Math.floor(Math.random() * myArray.length);
+return myArray[index];
+}
+
+</script>
+
+</body>
+</html>
