@@ -40,6 +40,28 @@ const exclamationResponses = [
     "You sound very passionate about that.",
     "Would you care to restate that in a more neutral tone?"];
 
+const povSwitches = {
+    "I": "you",
+    "i": "you",
+    "me": "you",
+    "myself": "yourself",
+    "am": "are",
+    "my": "your",
+    "My": "your",
+    "I'm": "you're",
+    "I'd": "you'd",
+    "I'll": "you'll",
+    "i'm": "you're",
+    "i'd": "you'd",
+    "i'll": "you'll"
+}
+const questionStarts = [
+    "Why do you say that",
+    "How is it that",
+    "Can you tell me more about how",
+    "And why is it that",
+    "Can you explain why you say that"];
+
 // Create the first line of the conversation.
 function initialize() {
     therapySession = "<p> I am the psychotherapist. What is your problem? </p>";
@@ -51,16 +73,21 @@ function initialize() {
 function submitLine() {
     var patientLine = textbox.value;
     therapySession += "<p> <em>" + patientLine + "</em> </p>";
+
     // Create a new variable to hold the therapist’s line and set it to respond to 
     // general statements, questions, and exclamations, using our new function.
     var therapistLine;
     if (lastChar(patientLine) == "?") {
         therapistLine = randomElement(questionResponses);
-        } else if (lastChar(patientLine) == "!") {
+    } else if (lastChar(patientLine) == "!") {
         therapistLine = randomElement(exclamationResponses);
-        } else {
+    } else {
+        therapistLine = createQuestion(patientLine);
+    }
+    // Still no good response, so use a basic response.
+    if (therapistLine == null) {
         therapistLine = randomElement(genericResponses);
-        }
+    }
 
     // Add that new line to the therapySession array.
     therapySession += "<p>" + therapistLine + "</p>";
@@ -76,6 +103,33 @@ function randomElement(myArray) {
 // Determine a question or exclamation mark to handle responses.
 function lastChar(myString) {
     return myString.substring(myString.length - 1);
+}
+
+// Generate a more sophisticated response.
+function createQuestion(patientLine) {
+    if (patientLine.toLowerCase().indexOf("you") != -1) {
+        return null;
+    }
+    if (lastChar(patientLine) == ".") {
+        patientLine = patientLine.substring(0, patientLine.length - 1);
+    }
+    var modifiedLine = " " + patientLine + " ";
+    var found = false;
+    for (var property in povSwitches) {
+        if (povSwitches.hasOwnProperty(property)) {
+            var modifiedProperty = " " + property + " ";
+            if (modifiedLine.indexOf(modifiedProperty) != -1) {
+                modifiedLine = modifiedLine.replace(modifiedProperty,
+                    " " + povSwitches[property] + " ");
+                found = true;
+            }
+        }
+    }
+    if (found) {
+        modifiedLine = modifiedLine.substring(0, modifiedLine.length - 1);
+        return randomElement(questionStarts) + " " + modifiedLine + "?";
+    }
+    return null;
 }
 
 </script>
