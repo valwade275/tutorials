@@ -9,16 +9,21 @@
 
 </style>
 </head>
+
 <body>
 
 <script>
 
+// Assign a self-invoking anonymous function to a global variable.
+// Initialize a local variable and assign a function to a local variable in the same scope.
+// Return the inner function & assign the inner function to the global variable.
 const add = ( function ( ) {  
   let count = 0
   const nested = function ( ) { return count = count + 1 }
   return nested
 } ) ( )
 
+//Add 3 identical function calls to the inner function that is now assigned to the global variable.
 console.log( 'Count is ' + add( ) )
 console.log( 'Count is ' + add( ) )
 console.log( 'Count is ' + add( ) )
@@ -26,5 +31,7 @@ console.log( 'Count is ' + add( ) )
 console.log( add.prototype )
 
 </script>
+
 </body>
+
 </html>
